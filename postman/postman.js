@@ -1,16 +1,3 @@
-var requestId = globals.requestId || 100000
-requestId ++ ;
-
-postman.clearGlobalVariable("requestId");
-postman.setGlobalVariable("requestId", requestId);
-postman.clearGlobalVariable("password");
-postman.setGlobalVariable("password", hex_md5("123456"));
-postman.clearGlobalVariable("checksum");
-postman.clearGlobalVariable("timestamp");
-var timestamp = new Date().getTime();
-postman.setGlobalVariable("timestamp", timestamp);
-postman.setGlobalVariable("checksum", hex_md5(timestamp+"a4349cf9be43f4808d9a98a3207507a4"));
-
 
 
 
@@ -271,3 +258,21 @@ function binl2b64(binarray)
   }
   return str;
 }
+
+
+
+
+var requestId = globals.requestId || 100000
+requestId ++ ;
+
+postman.clearGlobalVariable("requestId");
+postman.setGlobalVariable("requestId", requestId);
+postman.clearGlobalVariable("password");
+
+postman.setGlobalVariable("password", hex_md5("123456"));
+postman.clearGlobalVariable("checksum");
+postman.clearGlobalVariable("timestamp");
+var timestamp = new Date().getTime();
+postman.setGlobalVariable("timestamp", timestamp);
+postman.setGlobalVariable("checksum", hex_md5(timestamp+"a4349cf9be43f4808d9a98a3207507a4"));
+
