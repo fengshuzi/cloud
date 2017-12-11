@@ -274,5 +274,5 @@ postman.clearGlobalVariable("checksum");
 postman.clearGlobalVariable("timestamp");
 var timestamp = new Date().getTime();
 postman.setGlobalVariable("timestamp", timestamp);
-postman.setGlobalVariable("checksum", hex_md5(timestamp+"a4349cf9be43f4808d9a98a3207507a4"));
+postman.setGlobalVariable("checksum", hex_md5(timestamp+"iamappkey"));
 
