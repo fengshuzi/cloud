@@ -385,7 +385,7 @@ function urldecode(encodedString) {
 
 
 function signParam(paramObj, secret) {
-
+  paramObj.appkey = pm.globals.get("appkey");
   var arr = [];
   for (var key in paramObj) {
     if(key != "token") {
