@@ -388,7 +388,10 @@ function signParam(paramObj, secret) {
 
   var arr = [];
   for (var key in paramObj) {
-    arr.push(key);
+    if(key != "token") {
+      arr.push(key);
+    }
+    
   }
   arr = arr.sort();
   var paramStr = "";
@@ -403,7 +406,6 @@ function signParam(paramObj, secret) {
 
     }
   }
-  pm.environment.set("paramStr", paramStr);
 
   paramStr = paramStr + secret;
   paramObj.token = hex_md5(paramStr);
