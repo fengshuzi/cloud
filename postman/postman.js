@@ -413,8 +413,15 @@ function signParam(paramObj, secret) {
     pm.environment.set(i, paramObj[i]);
   }
   var paramStr = "?1=1";
-  for(var key in newParam) {
+  for(var key in paramObj) {
     paramStr = paramStr + "&" + key + "=" +newParam[key];
+  }
+  if(pm.request.method == "GET") {
+      pm.environment.set("get_params", paramStr);
+  
+  }else{
+          pm.environment.set("get_params", "");
+
   }
   console.log(paramStr);
   return paramObj;
