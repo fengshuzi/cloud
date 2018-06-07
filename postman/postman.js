@@ -423,13 +423,7 @@ function signParam(paramObj, secret) {
     }
     i++；
   }
-  if(pm.request.method == "GET") {
-      pm.environment.set("get_params", get_params);
-  
-  }else{
-    pm.environment.set("get_params", "");
 
-  }
   console.log(get_params);
   return paramObj;
 }
