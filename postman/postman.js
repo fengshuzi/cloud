@@ -419,9 +419,9 @@ function signParam(paramObj, secret) {
     if(k==0) {
       get_params = get_params + key + "=" +paramObj[key];
     }else {
-      get_params = get_params + "&" + key + "=" +paramObj[key];      
+      get_params = get_params + "&" + key + "=" +paramObj[key];  
     }
-    k++；
+    k++;
   }
   if(pm.request.method == "GET") {
       pm.environment.set("get_params", get_params);
