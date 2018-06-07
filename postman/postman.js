@@ -383,7 +383,6 @@ function urldecode(encodedString) {
 
 
 
-
 function signParam(paramObj, secret) {
   paramObj.appkey = pm.globals.get("appkey");
   var arr = [];
@@ -412,23 +411,25 @@ function signParam(paramObj, secret) {
   for (var i in paramObj) {
     pm.environment.set(i, paramObj[i]);
   }
-  var paramStr = "?";
+  
+  
+  var get_params = "?";
   var i = 0;
   for(var key in paramObj) {
     if(i==0) {
-      paramStr = paramStr + key + "=" +paramObj[key];
+      get_params = get_params + key + "=" +paramObj[key];
     }else {
-      paramStr = paramStr + "&" + key + "=" +paramObj[key];      
+      get_params = get_params + "&" + key + "=" +paramObj[key];      
     }
     i++；
   }
   if(pm.request.method == "GET") {
-      pm.environment.set("get_params", paramStr);
+      pm.environment.set("get_params", get_params);
   
   }else{
-          pm.environment.set("get_params", "");
+    pm.environment.set("get_params", "");
 
   }
-  console.log(paramStr);
+  console.log(get_params);
   return paramObj;
 }
