@@ -384,46 +384,6 @@ function urldecode(encodedString) {
 
 
 function signParam(paramObj, secret) {
-  paramObj.appkey = pm.globals.get("appkey");
-  var arr = [];
-  for (var key in paramObj) {
-    if(key != "token") {
-      arr.push(key);
-    }
-    
-  }
-  arr = arr.sort();
-  var paramStr = "";
-  for (var i = 0; i < arr.length; i++) {
-    var key = arr[i];
-    var value = urlencode(paramObj[key]);
-    if (i === 0) {
-      paramStr = paramStr + key + "=" + value;
 
-    } else {
-      paramStr = paramStr + "&" + key + "=" + value;
-
-    }
-  }
-
-  paramStr = paramStr + secret;
-  paramObj.token = hex_md5(paramStr);
-  for (var i in paramObj) {
-    pm.environment.set(i, paramObj[i]);
-  }
-  
-  
-  var get_params = "?";
-  var i = 0;
-  for(var key in paramObj) {
-    if(i==0) {
-      get_params = get_params + key + "=" +paramObj[key];
-    }else {
-      get_params = get_params + "&" + key + "=" +paramObj[key];      
-    }
-    i++；
-  }
-
-  console.log(get_params);
   return paramObj;
 }
